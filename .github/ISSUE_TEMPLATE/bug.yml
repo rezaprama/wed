@@ -1,0 +1,19 @@
+name: Bug report / Laporan bug
+description: Something broke. Please use sample data only.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened? / Apa yang terjadi?
+      description: Expected result, actual result and steps. No private photos, guest names or secrets.
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Browser and device / Browser dan perangkat
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant error / Pesan error
+      description: Remove tokens and personal details before posting.

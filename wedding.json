@@ -1,0 +1,24 @@
+{
+  "$schema": "./wedding.schema.json",
+  "language": "en",
+  "demo": true,
+  "allowIndexing": true,
+  "couple": {
+    "names": "Rani & Dimas",
+    "first": { "name": "Rani", "family": "Child of Parent One & Parent Two", "photo": "/media/person-one.svg" },
+    "second": { "name": "Dimas", "family": "Child of Parent Three & Parent Four", "photo": "/media/person-two.svg" },
+    "hosts": ["Parent One & Parent Two", "Parent Three & Parent Four"],
+    "photo": "/media/couple.svg",
+    "hashtag": "#YourWeddingStory"
+  },
+  "events": [
+    { "slug": "one", "city": "First city", "title": "Wedding reception", "date": "2027-06-12", "start": "11:00", "end": "13:00", "timeZone": "Asia/Jakarta", "venue": "Your first venue", "address": "Add your venue address here", "mapUrl": "https://maps.google.com/?q=Jakarta" },
+    { "slug": "two", "city": "Second city", "title": "Family celebration", "date": "2027-06-19", "start": "10:00", "end": "13:00", "timeZone": "Asia/Jakarta", "venue": "Your second venue", "address": "Add your second venue address here", "mapUrl": "https://maps.google.com/?q=Bandung" }
+  ],
+  "gallery": ["/media/memory-one.svg", "/media/memory-two.svg", "/media/memory-three.svg"],
+  "socials": [],
+  "music": { "file": "" },
+  "videoUrl": "",
+  "gifts": [],
+  "guestbook": { "enabled": false }
+}

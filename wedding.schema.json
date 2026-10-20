@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "wed wedding settings",
+  "type": "object",
+  "required": ["language", "demo", "allowIndexing", "couple", "events", "gallery", "socials", "music", "gifts", "guestbook"],
+  "properties": {
+    "language": { "enum": ["en", "id"] },
+    "demo": { "type": "boolean", "description": "Shows a clear sample-only notice. Set false for your own wedding." },
+    "allowIndexing": { "type": "boolean", "description": "Use false if you do not want search engines to index the invitation. This is not password protection." },
+    "couple": { "type": "object", "required": ["names", "first", "second", "hosts", "photo", "hashtag"], "properties": {
+      "names": { "type": "string" }, "photo": { "type": "string" }, "hashtag": { "type": "string" },
+      "first": { "$ref": "#/$defs/person" }, "second": { "$ref": "#/$defs/person" },
+      "hosts": { "type": "array", "items": { "type": "string" }, "maxItems": 4 }
+    } },
+    "events": { "type": "array", "minItems": 1, "maxItems": 4, "items": { "type": "object", "required": ["slug", "city", "title", "date", "start", "end", "timeZone", "venue", "address", "mapUrl"], "properties": {
+      "slug": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,19}$" }, "city": { "type": "string" }, "title": { "type": "string" },
+      "date": { "type": "string", "format": "date" }, "start": { "type": "string", "pattern": "^[0-2][0-9]:[0-5][0-9]$" }, "end": { "type": "string" },
+      "timeZone": { "type": "string" }, "venue": { "type": "string" }, "address": { "type": "string" }, "mapUrl": { "type": "string", "format": "uri" }
+    } } },
+    "gallery": { "type": "array", "items": { "type": "string" }, "maxItems": 12 },
+    "socials": { "type": "array", "items": { "type": "object", "required": ["label", "url"], "properties": { "label": { "type": "string" }, "url": { "type": "string", "format": "uri" } } } },
+    "music": { "type": "object", "required": ["file"], "properties": { "file": { "type": "string", "description": "Local audio path, such as /media/song.mp3. Leave empty to disable." } } },
+    "videoUrl": { "type": "string" },
+    "gifts": { "type": "array", "items": { "type": "object", "required": ["label", "value", "owner"], "properties": { "label": { "type": "string" }, "value": { "type": "string" }, "owner": { "type": "string" } } } },
+    "guestbook": { "type": "object", "required": ["enabled"], "properties": { "enabled": { "type": "boolean" } } }
+  },
+  "$defs": { "person": { "type": "object", "required": ["name", "family", "photo"], "properties": { "name": { "type": "string" }, "family": { "type": "string" }, "photo": { "type": "string" } } } }
+}

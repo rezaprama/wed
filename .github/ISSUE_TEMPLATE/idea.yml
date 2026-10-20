@@ -1,0 +1,13 @@
+name: Idea / Usulan
+description: Help make invitations easier to create or use.
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Who needs this, and why? / Siapa yang membutuhkan, dan mengapa?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Your idea / Usulanmu
