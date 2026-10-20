@@ -36,4 +36,8 @@ Pakai foto JPG, PNG, WebP, atau AVIF. Sumber sekitar 1200–2000 piksel sudah cu
 
 The supplied SVGs are original, neutral placeholders. Replace them with your own images, or keep them under the MIT license. To remove the gallery, use `"gallery": []`. To hide music, use `"music": {"file":""}`. No file is required for a disabled feature.
 
+The build publishes generated copies of configured images and your selected music file. It does not publish unused uploads or the original raster photo files. Keep `botanical.svg`; it supplies the page decoration. Choose trusted media that you have permission to use.
+
 SVG bawaan merupakan ilustrasi placeholder orisinal. Ganti dengan fotomu sendiri, atau tetap pakai sesuai lisensi MIT. Untuk menghapus galeri, isi `"gallery": []`. Untuk mematikan musik, isi `"music": {"file":""}`. Fitur yang dimatikan tidak memerlukan file.
+
+Build menerbitkan salinan gambar yang dipilih pada konfigurasi dan file musik yang digunakan. Unggahan yang tidak dipakai dan foto raster asli tidak diterbitkan. Tetap simpan `botanical.svg` untuk dekorasi halaman. Gunakan media tepercaya yang memang boleh kamu pakai.

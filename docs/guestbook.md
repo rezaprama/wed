@@ -14,7 +14,7 @@ npm run typegen
 npm run deploy
 ```
 
-The setup script creates a uniquely named D1 database, adds its non-secret binding to `wrangler.jsonc`, enables `guestbook.enabled` in `wedding.json`, and creates random `ADMIN_TOKEN` and `IP_HASH_KEY` values in ignored `.dev.vars` if the file does not exist. Existing local tokens are preserved. A partial or invalid existing token file stops setup without overwriting it.
+The setup script creates a uniquely named D1 database, adds its non-secret binding to `wrangler.jsonc`, enables `guestbook.enabled` and turns off sample mode in `wedding.json`, and creates random `ADMIN_TOKEN` and `IP_HASH_KEY` values in ignored `.dev.vars` if the file does not exist. Existing local tokens are preserved. A partial or invalid existing token file stops setup without overwriting it.
 
 Deployment applies the schema and uploads local secrets through `--secrets-file`. Their values are never placed in command arguments or printed by the scripts. Later Cloudflare builds inherit deployed secrets. If a DB binding already exists, the setup script does not create another database. Check the existing binding and `guestbook.enabled` setting before deploying.
 

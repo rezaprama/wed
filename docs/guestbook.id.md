@@ -14,7 +14,7 @@ npm run typegen
 npm run deploy
 ```
 
-Skrip setup membuat D1 dengan nama unik, menambahkan binding ke `wrangler.jsonc`, mengaktifkan `guestbook.enabled` di `wedding.json`, dan membuat `ADMIN_TOKEN` serta `IP_HASH_KEY` acak dalam `.dev.vars` bila file itu belum ada. Token lokal yang sudah ada dipertahankan. File token yang tidak lengkap atau tidak valid menghentikan setup tanpa ditimpa.
+Skrip setup membuat D1 dengan nama unik, menambahkan binding ke `wrangler.jsonc`, mengaktifkan `guestbook.enabled` dan mematikan mode contoh di `wedding.json`, serta membuat `ADMIN_TOKEN` dan `IP_HASH_KEY` acak dalam `.dev.vars` bila file itu belum ada. Token lokal yang sudah ada dipertahankan. File token yang tidak lengkap atau tidak valid menghentikan setup tanpa ditimpa.
 
 Deploy memasang skema dan mengunggah secret melalui `--secrets-file`. Nilainya tidak diletakkan dalam argumen perintah atau dicetak oleh skrip. Build berikutnya di Cloudflare memakai secret yang sudah tersimpan. Jika binding DB sudah ada, setup tidak membuat database baru. Periksa binding dan `guestbook.enabled` sebelum deploy.
 

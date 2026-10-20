@@ -13,6 +13,12 @@ const config = validateConfig(JSON.parse(await readFile(resolve(root, 'wedding.j
 await rm(dist, { recursive: true, force: true });
 await mkdir(resolve(dist, 'assets'), { recursive: true });
 await cp(resolve(root, 'public'), dist, { recursive: true });
+// Publish selected, generated media only. Source photos may contain private metadata.
+const mediaOutput = resolve(dist, 'media');
+if (dirname(mediaOutput) !== dist || basename(mediaOutput) !== 'media') throw new Error('Unexpected media output.');
+await rm(mediaOutput, { recursive: true, force: true });
+await mkdir(mediaOutput, { recursive: true });
+await cp(resolve(root, 'public/media/botanical.svg'), resolve(mediaOutput, 'botanical.svg'));
 const digest = bytes => createHash('sha256').update(bytes).digest('hex').slice(0, 12);
 const images = {};
 const paths = [...new Set([config.couple.photo, config.couple.first.photo, config.couple.second.photo, ...config.gallery])];
@@ -39,6 +45,9 @@ for (const path of paths) {
 if (config.music.file) {
   try { await readFile(resolve(root, 'public', '.' + config.music.file)); }
   catch { throw new Error(`Missing music: public${config.music.file}. Add your licensed audio or leave music.file empty.`); }
+  const target = resolve(dist, '.' + config.music.file);
+  await mkdir(dirname(target), { recursive: true });
+  await cp(resolve(root, 'public', '.' + config.music.file), target);
 }
 const css = (await transform(await readFile(resolve(root, 'src/style.css'), 'utf8'), { loader: 'css', minify: true })).code;
 const cssPath = `/assets/style-${digest(css)}.css`;

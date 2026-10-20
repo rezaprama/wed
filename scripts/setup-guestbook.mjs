@@ -32,5 +32,6 @@ wrangler = applyEdits(wrangler, modify(wrangler, ['secrets'], { required: ['ADMI
 wrangler = applyEdits(wrangler, modify(wrangler, ['d1_databases', bindingIndex, 'migrations_dir'], 'migrations', { formattingOptions: { insertSpaces: true, tabSize: 2 } }));
 await writeFile(resolve(root, 'wrangler.jsonc'), wrangler);
 config.guestbook.enabled = true;
+config.demo = false;
 await writeFile(configPath, JSON.stringify(config, null, 2) + '\n');
 console.log('Guestbook configured. Private random tokens are in ignored .dev.vars. Their values are not printed.\nNext: npm run typegen, then npm run deploy. Open /admin/ and use ADMIN_TOKEN from .dev.vars.\nCommit wedding.json and wrangler.jsonc to your own repository. Never commit .dev.vars.');
