@@ -20,12 +20,12 @@ Performance measurements vary with network, test infrastructure, browser/Lightho
 
 Live demo: https://wed.rezaprama.workers.dev
 
-Measured on **20 October 2026**, using the unmodified sample configuration and SVG placeholders, Lighthouse 13.5.0:
+Measured on **20 October 2026 at 19:26 WIB**, after commit `99cbdae`, using the default Galih & Ratna sample configuration and SVG placeholders, Lighthouse 13.5.0:
 
 | Device | Performance | Accessibility | Best Practices | SEO | Report |
 | --- | --- | --- | --- | --- | --- |
-| Mobile | 100 | 100 | 100 | 100 | [PageSpeed report](https://pagespeed.web.dev/analysis/https-wed-rezaprama-workers-dev/hzq83lt6bl?form_factor=mobile) |
-| Desktop | 100 | 100 | 100 | 100 | [PageSpeed report](https://pagespeed.web.dev/analysis/https-wed-rezaprama-workers-dev/hzq83lt6bl?form_factor=desktop) |
+| Mobile | 100 | 100 | 100 | 100 | [PageSpeed report](https://pagespeed.web.dev/analysis/https-wed-rezaprama-workers-dev/1qvjza0vju?form_factor=mobile) |
+| Desktop | 100 | 100 | 100 | 100 | [PageSpeed report](https://pagespeed.web.dev/analysis/https-wed-rezaprama-workers-dev/1qvjza0vju?form_factor=desktop) |
 
 Evidence: [mobile screenshot](pagespeed-mobile.png), [desktop screenshot](pagespeed-desktop.png). These are measured demo results, not promises for customized photos, optional features or future tests. Real-user field data was unavailable at the time of the run.
 
