@@ -14,6 +14,7 @@ Jika diminta, isi seperti ini:
 
 | Kolom | Isi |
 | --- | --- |
+| Worker name | `wed` |
 | Root directory | `/` |
 | Build command | `npm run build` |
 | Deploy command | `npm run deploy` |
@@ -22,7 +23,9 @@ Jika diminta, isi seperti ini:
 
 Jika tidak ada kolom Node version, tambahkan build environment variable `NODE_VERSION` dengan nilai `24`. Cloudflare membaca konfigurasi Wrangler. Buka tautan `workers.dev` yang muncul. Seharusnya terlihat contoh Rani & Dimas dan ilustrasi pengganti foto.
 
-Acuan resmi: [tombol Deploy](https://developers.cloudflare.com/workers/platform/deploy-buttons/), [template GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [Cloudflare Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
+Nama repo dan nama Worker berbeda. `wed` sesuai dengan kolom `name` bawaan di `wrangler.jsonc`. Kalau ingin nama web lain, buka file itu di salinanmu, ubah `name`, lalu simpan. Pakai nama yang persis sama di Cloudflare. Dengan begitu, build tidak gagal karena nama Worker berbeda.
+
+Acuan resmi: [tombol Deploy](https://developers.cloudflare.com/workers/platform/deploy-buttons/), [template GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [Cloudflare Builds](https://developers.cloudflare.com/workers/ci-cd/builds/), [bantuan build](https://developers.cloudflare.com/workers/ci-cd/builds/troubleshoot/).
 
 ## 3. Ganti tulisan
 

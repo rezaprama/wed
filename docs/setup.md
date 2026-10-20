@@ -14,6 +14,7 @@ Use these settings if Cloudflare asks:
 
 | Field | Value |
 | --- | --- |
+| Worker name | `wed` |
 | Root directory | `/` |
 | Build command | `npm run build` |
 | Deploy command | `npm run deploy` |
@@ -22,7 +23,9 @@ Use these settings if Cloudflare asks:
 
 If Node version is not shown, add the build environment variable `NODE_VERSION` with value `24`. Cloudflare detects the Wrangler configuration. Open the resulting `workers.dev` link. You should see Rani & Dimas and placeholder artwork.
 
-Official references: [Deploy button](https://developers.cloudflare.com/workers/platform/deploy-buttons/), [GitHub templates](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [Cloudflare Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
+The repository name and Worker name are separate. `wed` matches the default `name` in `wrangler.jsonc`. If you want a different website name, first edit that `name` in your copy, save it, then use the exact same name in Cloudflare. This avoids a Worker-name mismatch during builds.
+
+Official references: [Deploy button](https://developers.cloudflare.com/workers/platform/deploy-buttons/), [GitHub templates](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template), [Cloudflare Builds](https://developers.cloudflare.com/workers/ci-cd/builds/), [build troubleshooting](https://developers.cloudflare.com/workers/ci-cd/builds/troubleshoot/).
 
 ## 3. Replace the words
 
