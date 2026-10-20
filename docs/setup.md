@@ -1,27 +1,59 @@
-# Your first invitation
+# Your first invitation, starting with no accounts
 
-You need a GitHub account and a Cloudflare account. Choose their Free plans. This guide starts with a working invitation, without a database.
+[Bahasa Indonesia](setup.id.md) · [Back to the main page](../README.md)
+
+Get the sample online first. Then change the words and photos. You can do the main steps in a laptop browser, without installing an app or typing terminal commands.
+
+## A few words you will see
+
+| Word | What it means |
+| --- | --- |
+| GitHub | A place to keep your invitation files. Think of an online folder. |
+| Repository, or repo | One project folder on GitHub. |
+| Cloudflare | The service that publishes those files as a website guests can open. |
+| Commit changes | Save your file changes. |
+| Build | Cloudflare is preparing your website from the files. |
+| Deploy | Cloudflare is publishing the prepared website. |
+
+## No accounts yet? Start here
+
+1. Open [GitHub signup](https://github.com/signup). Follow the form or available sign-in options. Use an email inbox you can open.
+2. Choose a username, such as `galih-ratna`. This is your account name, separate from the invitation wording.
+3. Open GitHub's email and finish verification. Choose **Free** if asked for a plan.
+4. Open [Cloudflare signup](https://dash.cloudflare.com/sign-up). Follow signup and email verification.
+5. Sign in to Cloudflare. Use **Workers Free** for this guide. You can skip buying a domain or setting up domain DNS.
+
+Your website gets a free `workers.dev` address. The sample needs no purchased domain or database. If a screen offers a paid upgrade, you do not need it for these steps.
+
+You are ready when you can sign in to both accounts. Official help: [GitHub account](https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github), [Cloudflare account](https://developers.cloudflare.com/fundamentals/account/create-account/).
 
 ## 1. Make a copy
 
-Use the Deploy to Cloudflare button in the README. Cloudflare connects your GitHub account and creates a copy for you. Or use GitHub's **Use this template → Create a new repository**, choose **Private** if you will add private photos, and import that repository in Cloudflare Workers & Pages.
+1. Open [Make a copy of wed](https://github.com/rezaprama/wed/generate).
+2. Under **Owner**, choose your GitHub account.
+3. Under **Repository name**, enter a short name, such as `our-wedding`.
+4. Choose **Private** to keep source photos and personal details off public GitHub.
+5. Click **Create repository**. Wait for the file list.
 
-Call it something short, such as `our-wedding`. A repository is the folder that holds your website files.
+You are ready when the address contains your account, such as `github.com/your-name/our-wedding`. Edit this copy. A private repository hides source files; the published website remains visible to anyone with its link.
 
 ## 2. Deploy the sample
 
-Use these settings if Cloudflare asks:
+In Cloudflare, open **Workers & Pages → Create application → Import a repository**, or **Connect to Git**. Connect your GitHub account. If asked which repositories to allow, select your invitation copy. Choose `our-wedding`, then enter:
 
 | Field | Value |
 | --- | --- |
 | Worker name | `wed` |
+| Production branch | `main` |
 | Root directory | `/` |
 | Build command | `npm run build` |
 | Deploy command | `npm run deploy` |
 | Node version | `24` |
 | Database / secrets | None for the default site |
 
-If Node version is not shown, add the build environment variable `NODE_VERSION` with value `24`. Cloudflare detects the Wrangler configuration. Open the resulting `workers.dev` link. You should see Rani & Dimas and placeholder artwork.
+If Node version is not shown, add the build environment variable `NODE_VERSION` with value `24`. Cloudflare detects the Wrangler configuration.
+
+Click **Deploy** and wait for success. Open the resulting `workers.dev` link. You should see Galih & Ratna and placeholder artwork. Menu labels can change; look for the option to import a GitHub repository. The README's **Deploy to Cloudflare** button is another path that also creates a copy. Since step 1 already made your copy, import that copy here.
 
 The repository name and Worker name are separate. `wed` matches the default `name` in `wrangler.jsonc`. If you want a different website name, first edit that `name` in your copy, save it, then use the exact same name in Cloudflare. This avoids a Worker-name mismatch during builds.
 
@@ -29,7 +61,7 @@ Official references: [Deploy button](https://developers.cloudflare.com/workers/p
 
 ## 3. Replace the words
 
-Open `wedding.json` in your GitHub copy. Click the pencil. Change the text inside quotation marks. Keep the field names, quotation marks, commas and brackets.
+Open `wedding.json` in your GitHub copy. Click the pencil, **Edit this file**. Change the text inside quotation marks. Keep the field names, quotation marks, commas and brackets.
 
 ```json
 "language": "en",
@@ -41,16 +73,23 @@ Open `wedding.json` in your GitHub copy. Click the pencil. Change the text insid
 - `demo: false` removes the sample-only notice.
 - `allowIndexing: false` asks search engines not to list your invitation. This lowers the SEO audit score intentionally. It does not prevent people from opening the link.
 - `couple` holds names, family lines, parents/hosts, the cover photo and hashtag.
+- `couple.first.birthDate` and `couple.second.birthDate` are optional birth dates, written as `YYYY-MM-DD`. The sample uses Galih (1 January 2000) and Ratna (17 August 2000). Remove the `birthDate` field to hide a birth date.
 - `events` holds the cities. Dates use `YYYY-MM-DD`. Times use 24-hour `HH:MM`. Time zones use names such as `Asia/Jakarta` or `Europe/London`.
 - `slug` is the short city code used in the URL. Example: `jakarta` gives `/jakarta/` and `/JAKARTA/`. Use lowercase letters, numbers or hyphens. Keep at least one event.
 
 Click **Commit changes** to save. Cloudflare rebuilds. If a value is invalid, the build tells you which field to fix; the previous successful site stays live.
 
-## 4. Add photos
+Not comfortable editing the file? [Ask AI to prepare the complete file](ai.md), then paste it into GitHub. For colors, sizes and dress code, use the [customization guide](customize.md). It uses the same file.
 
-Use the [photo map](photos.md). Upload images to `public/media/`. Then update their paths in `wedding.json`. An uploaded file named `cover.jpg` has the path `/media/cover.jpg`.
+## 4. Add your photos
 
-JPG, PNG, WebP and AVIF photos work. The build makes smaller responsive WebP copies and removes image metadata from the generated raster copies. It does not remove metadata from the original file stored in your repository. Choose a private repository for private source photos. Original placeholder SVGs can be deleted after their config paths are replaced.
+1. In your GitHub copy, open **public**, then **media**.
+2. Click **Add file → Upload files**. Choose a photo from your laptop, such as `couple.jpg`.
+3. Click **Commit changes** to save the upload.
+4. Open `wedding.json`, click the pencil and change `/media/couple.svg` to `/media/couple.jpg`.
+5. Save with **Commit changes**. Wait for a successful Cloudflare build.
+
+The [photo map](photos.md) shows where each image appears. Use simple filenames and match uppercase/lowercase letters exactly. JPG, PNG, WebP and AVIF work. The build makes smaller WebP copies and removes metadata from generated photos. Original files in your repository still retain their metadata, so use a private repo for personal source photos. You can remove unused sample SVGs after updating every reference.
 
 ## 5. Optional extras
 
@@ -83,3 +122,7 @@ You can also write `?to=Guest%20Name` at the end of an invitation URL. Do not pu
 | Parents' link looks different | Uppercase routes intentionally use parents as hosts. |
 
 For help, open an issue without uploading private photos, guest names, gift details or tokens.
+
+To restore older content: open `wedding.json` → **History** → choose a version that worked → copy that file's text. Return to the file on `main`, click the pencil, paste the older text and **Commit changes**. A typo does not require deleting your repository.
+
+Keep passwords, email codes and tokens to yourself. The [AI guide](ai.md) has a repair prompt. Use the [feature guide](features.md) when a change needs code.

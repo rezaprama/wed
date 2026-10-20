@@ -2,7 +2,7 @@
   "name": "wed",
   "version": "1.0.0",
   "private": true,
-  "description": "A free wedding website template. One config file. GitHub and Cloudflare Free.",
+  "description": "A free wedding website template for beginners. Browser setup, simple guides and copy-paste AI prompts. GitHub and Cloudflare Free.",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -13,6 +13,7 @@
     "dev": "npm run build && node --import tsx scripts/dev.mjs",
     "dev:cloudflare": "npm run build && wrangler dev",
     "check": "npm run typecheck && npm test && npm run build && node scripts/check.mjs",
+    "verify": "npm run check && npm run deploy:dry-run",
     "typegen": "wrangler types --include-runtime false",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test tests/*.test.ts",

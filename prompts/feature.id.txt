@@ -1,0 +1,13 @@
+Aku memakai salinan template https://github.com/rezaprama/wed.
+Fitur yang kuinginkan: [TULIS FITUR DAN CONTOH PERILAKUNYA].
+Alamat repo milikku: [TAUTAN REPO ATAU SEBUTKAN FILE YANG KULAMPIRKAN].
+
+Baca AGENTS.md, wedding.json, docs/features.id.md, serta file terkait sebelum mengedit. Kalau tidak punya akses repo, katakan lalu minta file yang dibutuhkan. Jangan mengaku sudah mengedit atau menguji jika hanya bisa memberi teks.
+
+Cek dulu apakah fitur bisa dibuat memakai extraSections, socials, gallery, music, videoUrl atau guestbook yang sudah ada. Jika cukup, ubah pengaturan saja.
+
+Untuk perubahan kode: jelaskan perilaku yang akan muncul, lalu buat perubahan sekecil yang perlu. Pertahankan empat varian undangan, nama tamu, akses keyboard, tiga warna, tiga ukuran, maksimal tiga keluarga font, kontras minimal 4,5:1 dan atribusi Template by rezaprama.com. Fitur tambahan yang berat harus opsional dan tidak dimuat sebelum dibutuhkan. Jangan menambahkan framework, tracker atau layanan berbayar hanya untuk kemudahan implementasi. Jangan melemahkan CSP, validasi, moderasi, pembatasan kirim, atau pemeriksaan desain.
+
+Perbarui schema, validasi dan dokumentasi jika menambah pengaturan. Tambah tes untuk perilaku baru yang penting. Jalankan npm run verify jika punya terminal. Periksa tampilan desktop/mobile untuk perubahan visual. Jangan mengarang skor PageSpeed atau hasil tes. Jika publikasi termasuk permintaanku, deploy setelah pemeriksaan lolos dan smoke test URL live. Jangan membuat resource berbayar, memperluas akses, mengubah visibilitas repo, menghapus database atau force-push tanpa permintaan yang jelas.
+
+Jika hanya bisa menjawab lewat chat, berikan nama file, isi lengkap file yang diubah, langkah menyimpannya di GitHub, serta pemeriksaan yang masih harus dijalankan. Jangan mengembalikan seluruh proyek baru untuk perubahan kecil.

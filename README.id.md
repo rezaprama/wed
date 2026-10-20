@@ -4,7 +4,7 @@
 
 **Hari bahagiamu. Websitemu sendiri.**
 
-Template web undangan pernikahan gratis, memakai GitHub dan Cloudflare.
+Bikin web undangan pernikahanmu sendiri. Template gratis, panduan pelan-pelan dalam bahasa Indonesia dan Inggris, memakai GitHub dan Cloudflare Free.
 
 [Lihat contoh](https://wed.rezaprama.workers.dev) · [English](README.md) · [Panduan foto](docs/photos.md) · [Panduan lengkap](docs/setup.id.md)
 
@@ -13,6 +13,10 @@ Template web undangan pernikahan gratis, memakai GitHub dan Cloudflare.
 </div>
 
 Ganti nama. Masukkan foto. Bagikan tautan.
+
+**Belum pernah memakai GitHub atau Cloudflare? [Mulai di sini, dari membuat akun](docs/setup.id.md).** Arti istilah dan tombol yang perlu diklik dijelaskan satu per satu.
+
+Lebih nyaman minta AI? [Salin prompt untuk ChatGPT, Gemini, atau Claude](docs/ai.id.md), lalu tempel hasilnya ke GitHub. [Warna, ukuran tulisan, dan bagian isi tambahan](docs/customize.id.md) bisa diubah lewat file yang sama. Untuk fitur baru, gunakan [panduan fitur](docs/features.id.md).
 
 **Tanpa WordPress. Tanpa tema berbayar. Tanpa langganan template.** Versi awal tidak membutuhkan database, API key, atau terminal. Hosting bisa tetap Rp0 selama penggunaan berada dalam kuota Free Cloudflare. Kamu mendapat alamat `workers.dev` gratis. Domain sendiri boleh ditambahkan, tetapi tidak wajib.
 
@@ -89,6 +93,10 @@ npm run smoke -- https://alamat-webmu.workers.dev
 ```
 
 Versi awal tidak memerlukan secret. Gunakan integrasi GitHub di Cloudflare agar perubahan otomatis terpasang. GitHub Actions yang disertakan memeriksa kode tanpa memerlukan token deploy. [Arsitektur dan pengukuran performa](docs/performance.md).
+
+## Minta bantuan AI
+
+Pakai [prompt isi undangan](prompts/personalize.id.txt) untuk nama, tanggal, foto, tiga warna, tiga ukuran, serta bagian dress code atau parkir. Pakai [prompt fitur](prompts/feature.id.txt) untuk perubahan kode. Aturan bersama di `AGENTS.md`, `CLAUDE.md`, dan `GEMINI.md`, serta `npm run verify`, membantu menjaga perubahan. Pemeriksaan ini mencakup batas yang ditentukan, bukan jaminan bahwa setiap jawaban AI benar.
 
 ## Bantu pasangan berikutnya
 

@@ -1,0 +1,21 @@
+Aku pemula dan memakai template https://github.com/rezaprama/wed.
+Bantu aku mengubah isi undangan lewat wedding.json. Jelaskan dengan bahasa Indonesia yang mudah, satu langkah per giliran.
+
+Mulai dengan meminta isi wedding.json dari salinan repo milikku. Jangan mengarang struktur file jika kamu belum membacanya. Setelah itu tanyakan data yang masih dibutuhkan: nama pasangan, tanggal lahir opsional, pengundang, kota, tanggal/jam/zona waktu, tempat, tautan peta, foto yang sudah diunggah, pilihan warna dan ukuran.
+
+Batas kerja:
+- Ubah hanya wedding.json. Pertahankan kolom dan nilai yang tidak kuminta diubah.
+- Jangan mengarang nama keluarga, alamat, jadwal, tautan peta, nomor rekening, atau foto.
+- Foto lokal memakai /media/nama-file. File harus sudah kuunggah ke public/media; jangan membuat tautan foto yang tidak ada.
+- Tanggal memakai YYYY-MM-DD. Jam memakai HH:MM. Jangan mengubah tanggal lahir menjadi tanggal acara.
+- theme.colors hanya background, text, accent. Kode # dan enam digit. Kontras text/background dan accent/background minimal 4,5:1. Jika ragu, gunakan palet bawaan atau palet pada docs/customize.id.md.
+- theme.fontSizes hanya body (16-20), heading (24-40), title (40-64), angka bulat tanpa px. body < heading < title. Maksimal tiga ukuran dan tiga warna UI. Jangan menambah font atau gradasi.
+- Untuk dress code atau parkir, gunakan extraSections berisi title dan text biasa. Maksimal empat bagian; judul 100 karakter, isi 1.000 karakter. Jangan memasukkan HTML.
+- Untuk salinan pribadiku, set demo=false. Pertahankan pilihan allowIndexing milikku; jika belum diputuskan, tanyakan apakah undangan boleh muncul di mesin pencari.
+- Jangan mengaktifkan database, buku tamu, layanan berbayar, analytics, atau musik yang belum kuminta. Jangan meminta kata sandi, token, kode login, atau API key.
+- Jangan menyebut sudah mengedit repo, menjalankan tes, atau menerbitkan web jika kamu tidak benar-benar punya alat dan belum melakukannya.
+
+Setelah semua data cukup, berikan satu blok JSON lengkap yang valid, tanpa komentar dan tanpa koma terakhir. Sesudah blok itu, jelaskan cara membuka wedding.json di GitHub, klik pensil, mengganti seluruh isi dengan JSON tadi, lalu Commit changes. Aku harus menyalin isi JSON saja, tanpa tanda pagar pembuka/penutup blok.
+
+Perubahan yang kuinginkan:
+[TULIS KEINGINANMU DI SINI. Contoh: ganti nama pasangan; pakai palet hijau; tambahkan dress code.]

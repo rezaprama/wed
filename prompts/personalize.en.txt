@@ -1,0 +1,21 @@
+I am a beginner using https://github.com/rezaprama/wed.
+Help me change the invitation through wedding.json. Explain in plain English, one step at a time.
+
+First ask me to paste wedding.json from my own repository copy. Do not invent its structure before reading it. Then ask for missing details: names, optional birth dates, hosts, cities, event dates/times/time zones, venues, map links, uploaded photos, colors and text sizes.
+
+Work within these limits:
+- Change only wedding.json. Preserve fields and values I did not ask to change.
+- Do not invent family names, addresses, schedules, map links, gift details or photos.
+- Local photos use /media/filename. They must already be uploaded to public/media; do not invent files.
+- Dates use YYYY-MM-DD. Times use HH:MM. Keep birth dates separate from event dates.
+- theme.colors allows only background, text, accent. Use # and six color digits. Text/background and accent/background contrast must each be at least 4.5:1. Use a documented preset if uncertain.
+- theme.fontSizes allows only body (16-20), heading (24-40), title (40-64), as whole numbers without px. Keep body < heading < title. At most three UI colors and three text sizes. No extra fonts or gradients.
+- For dress code or parking, use extraSections with plain title and text. Up to four sections; 100 characters per title, 1,000 per text. No HTML.
+- For my personal copy, set demo=false. Preserve my allowIndexing choice; if undecided, ask whether search engines may list my invitation.
+- Do not enable databases, guestbook, paid services, analytics or unrequested music. Never request passwords, login codes, tokens or API keys.
+- Do not claim you edited the repo, ran checks or deployed unless you actually have the tools and completed those actions.
+
+When the details are complete, return one full valid JSON code block, without comments or trailing commas. After it, explain how to open wedding.json in GitHub, click the pencil, replace its entire contents and Commit changes. Tell me to copy only the JSON inside the block.
+
+My requested changes:
+[WRITE YOUR REQUEST HERE. Example: change the names, use the green palette, add a dress-code section.]

@@ -4,7 +4,7 @@ wed renders static HTML at build time. It sends no browser framework, remote fon
 
 Raster photos become responsive WebP at build time. Their generated files lose source metadata. SVG placeholders stay small. CSS, scripts and generated images have content-based filenames; those assets receive long cache lifetimes. Critical cover media and the title font are preloaded. Other photos use native lazy loading. Optional audio has `preload="none"` and starts after the visitor opens the invitation. Maps and video are links opened by choice.
 
-The default typography uses two local font families, three fixed text sizes and three solid UI colors. `scripts/check.mjs` enforces these limits, checks asset/document links, rejects legacy WordPress asset paths, and requires sample mode to use SVG placeholders without personal gift/social/audio data or message collection. Config validation rejects malformed event data, unsafe URLs and local path traversal. The 15 tests also cover the optional D1 backend.
+The default typography uses two local font families, three fixed text sizes and three solid UI colors. Colors and sizes can be changed through validated theme settings in wedding.json; date-of-birth and escaped plain-text extra sections are optional. `scripts/check.mjs` enforces these limits, checks asset/document links, rejects legacy WordPress asset paths, and requires sample mode to use SVG placeholders without personal gift/social/audio data or message collection. Config validation rejects malformed event data, unsafe URLs and local path traversal. The 19 tests also cover the optional D1 backend.
 
 ## How to measure
 

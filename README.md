@@ -4,7 +4,7 @@
 
 **Your day. Your website.**
 
-A free wedding website template for GitHub and Cloudflare.
+Make your own wedding invitation website. Free template, simple English and Indonesian guides, GitHub and Cloudflare Free.
 
 [Live demo](https://wed.rezaprama.workers.dev) · [Bahasa Indonesia](README.id.md) · [Photo guide](docs/photos.md) · [Setup help](docs/setup.md)
 
@@ -15,6 +15,10 @@ A free wedding website template for GitHub and Cloudflare.
 </div>
 
 Change the names. Add your photos. Send the link.
+
+**Never used GitHub or Cloudflare? [Start here, from creating your accounts](docs/setup.md).** Every required button and term is explained.
+
+Prefer to ask an AI? [Copy a prompt for ChatGPT, Gemini or Claude](docs/ai.md). You can paste its answer into GitHub. [Change colors, text sizes and extra sections](docs/customize.md) in the same file. [Add a feature](docs/features.md) with shared AI rules and automated checks.
 
 **No WordPress. No paid theme. No subscription to this template.** The default site needs no database, API key or terminal. Hosting can stay at $0 within Cloudflare's Free limits. You receive a free `workers.dev` address; buying your own domain is optional.
 
@@ -101,6 +105,10 @@ migrations/         Optional guestbook schema
 tests/              Config, routing, privacy and database checks
 docs/               Small, focused guides
 ```
+
+## Make changes with AI
+
+Use the [content prompt](prompts/personalize.en.txt) for names, dates, photos, three colors, three sizes and extra content sections. Use the [feature prompt](prompts/feature.en.txt) for code changes. Shared `AGENTS.md`, `CLAUDE.md` and `GEMINI.md` rules plus `npm run verify` keep the workflow clear. These checks cover defined constraints; they do not guarantee every AI answer is correct.
 
 ## Help make the next wedding easier
 

@@ -14,5 +14,4 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run typegen
-      - run: npm run check
-      - run: npm run deploy:dry-run
+      - run: npm run verify
