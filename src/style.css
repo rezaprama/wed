@@ -26,7 +26,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body { margin: 0; font-family: var(--font-body); font-size: var(--text-body); line-height: 1.7; color: var(--ink); background: var(--paper); }
 body:has(dialog[open]) { overflow: hidden; }
 h1, h2, h3, p, figure { margin: 0; }
-h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.25; text-wrap: balance; }
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.25; text-wrap: balance; overflow-wrap: anywhere; }
 h1, .title { font-size: var(--text-title); }
 h2, h3 { font-size: var(--text-heading); }
 p, label, time, button, input, textarea, select, a, span, code, pre, small { font-size: inherit; }
@@ -115,6 +115,8 @@ textarea { resize: vertical; }
 .hashtag { overflow-wrap: anywhere; }
 .filter-note { border-top: 1px solid var(--accent); padding-top: 24px; }
 .archive-footer { padding: 28px 24px 96px; text-align: center; border-top: 1px solid var(--accent); }
+.template-credit { margin-top: 12px; font-size: var(--text-body); }
+.extra-section-text { white-space: pre-line; overflow-wrap: anywhere; }
 dialog { width: min(90vw, 760px); max-width: none; max-height: 90dvh; padding: 64px 28px 28px; margin: auto; border: 1px solid var(--accent); border-radius: 8px; color: var(--ink); background: var(--paper); font-family: var(--font-body); font-size: var(--text-body); }
 dialog::backdrop { background: var(--ink); }
 .dialog-close { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; background: var(--paper); color: var(--ink); border: 1px solid var(--accent); border-radius: 8px; }

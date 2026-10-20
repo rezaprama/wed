@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 import { build, transform } from 'esbuild';
 import { validateConfig } from '../src/config.mjs';
+import { applyTheme, themeSvg } from '../src/theme.mjs';
 import { renderPage, renderTool, variants } from '../src/render.mjs';
 
 const root = resolve(import.meta.dirname, '..');
@@ -18,7 +19,7 @@ const mediaOutput = resolve(dist, 'media');
 if (dirname(mediaOutput) !== dist || basename(mediaOutput) !== 'media') throw new Error('Unexpected media output.');
 await rm(mediaOutput, { recursive: true, force: true });
 await mkdir(mediaOutput, { recursive: true });
-await cp(resolve(root, 'public/media/botanical.svg'), resolve(mediaOutput, 'botanical.svg'));
+await writeFile(resolve(mediaOutput, 'botanical.svg'), themeSvg(await readFile(resolve(root, 'public/media/botanical.svg'), 'utf8'), config));
 const digest = bytes => createHash('sha256').update(bytes).digest('hex').slice(0, 12);
 const images = {};
 const paths = [...new Set([config.couple.photo, config.couple.first.photo, config.couple.second.photo, ...config.gallery])];
@@ -26,6 +27,7 @@ for (const path of paths) {
   let bytes;
   try { bytes = await readFile(resolve(root, 'public', '.' + path)); }
   catch { throw new Error(`Missing image: public${path}. Add the file or fix its path in wedding.json.`); }
+  if (path.endsWith('.svg')) bytes = Buffer.from(themeSvg(bytes.toString('utf8'), config));
   const hash = digest(bytes);
   if (path.endsWith('.svg')) {
     const src = `/assets/${hash}.svg`; await writeFile(resolve(dist, '.' + src), bytes); images[path] = { src };
@@ -49,7 +51,7 @@ if (config.music.file) {
   await mkdir(dirname(target), { recursive: true });
   await cp(resolve(root, 'public', '.' + config.music.file), target);
 }
-const css = (await transform(await readFile(resolve(root, 'src/style.css'), 'utf8'), { loader: 'css', minify: true })).code;
+const css = (await transform(applyTheme(await readFile(resolve(root, 'src/style.css'), 'utf8'), config), { loader: 'css', minify: true })).code;
 const cssPath = `/assets/style-${digest(css)}.css`;
 await writeFile(resolve(dist, '.' + cssPath), css);
 const bundle = await build({ entryPoints: { app: resolve(root, 'src/client/app.js'), generator: resolve(root, 'src/client/generator.js'), admin: resolve(root, 'src/client/admin.js') }, bundle: true, minify: true, target: ['es2022'], outdir: resolve(dist, 'assets'), entryNames: '[name]-[hash]', metafile: true });

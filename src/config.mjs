@@ -1,4 +1,8 @@
+import { resolveTheme } from './theme.mjs';
+
 export function validateConfig(config) {
+  if (!config || typeof config !== 'object' || Array.isArray(config)) throw new Error('wedding.json: keep the complete settings object.');
+  resolveTheme(config);
   const text = (value, field, max = 200) => {
     if (typeof value !== 'string' || !value.trim() || value.length > max) throw new Error(`${field}: enter 1 to ${max} characters.`);
   };
@@ -8,6 +12,10 @@ export function validateConfig(config) {
   };
   const media = (value, field) => {
     if (typeof value !== 'string' || !/^\/media\/[a-zA-Z0-9/_ .-]+\.(?:svg|jpe?g|png|webp|avif|mp3|ogg|m4a|wav)$/i.test(value) || value.includes('..')) throw new Error(`${field}: use a local /media/filename path without '..'.`);
+  };
+  const calendarDate = (value, field) => {
+    const date = new Date(`${value}T12:00:00Z`);
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value) || !Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== value) throw new Error(`${field}: use a real YYYY-MM-DD date.`);
   };
   if (!['en', 'id'].includes(config.language)) throw new Error('language: choose "en" or "id".');
   for (const key of ['demo', 'allowIndexing']) if (typeof config[key] !== 'boolean') throw new Error(`${key}: choose true or false.`);
@@ -19,6 +27,7 @@ export function validateConfig(config) {
     text(config.couple[key]?.name, `couple.${key}.name`, 100);
     text(config.couple[key].family, `couple.${key}.family`);
     media(config.couple[key].photo, `couple.${key}.photo`);
+    if (Object.hasOwn(config.couple[key], 'birthDate')) calendarDate(config.couple[key].birthDate, `couple.${key}.birthDate`);
   }
   if (!Array.isArray(config.couple.hosts) || !config.couple.hosts.length || config.couple.hosts.length > 4) throw new Error('couple.hosts: add 1 to 4 host lines.');
   config.couple.hosts.forEach(host => text(host, 'couple.hosts'));
@@ -28,8 +37,7 @@ export function validateConfig(config) {
     if (!/^[a-z][a-z0-9-]{0,19}$/.test(event.slug) || ['admin', 'api', 'assets', 'media', 'fonts', 'send', 'parents'].includes(event.slug) || slugs.has(event.slug)) throw new Error('Each event.slug must be unique, lowercase, short, and not a reserved path.');
     slugs.add(event.slug);
     for (const key of ['city', 'title', 'venue', 'address']) text(event[key], `events.${event.slug}.${key}`);
-    const date = new Date(`${event.date}T12:00:00Z`);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(event.date) || !Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== event.date) throw new Error(`events.${event.slug}.date: use a real YYYY-MM-DD date.`);
+    calendarDate(event.date, `events.${event.slug}.date`);
     for (const key of ['start', 'end']) if (!/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(event[key])) throw new Error(`events.${event.slug}.${key}: use 24-hour HH:MM.`);
     if (event.end <= event.start) throw new Error(`events.${event.slug}: end must follow start on the same day.`);
     try { new Intl.DateTimeFormat('en', { timeZone: event.timeZone }).format(); } catch { throw new Error(`events.${event.slug}.timeZone: use a valid time zone such as Asia/Jakarta.`); }
@@ -37,6 +45,10 @@ export function validateConfig(config) {
   }
   if (!Array.isArray(config.gallery) || config.gallery.length > 12) throw new Error('gallery: use 0 to 12 local images.');
   config.gallery.forEach(path => media(path, 'gallery'));
+  if (config.extraSections !== undefined) {
+    if (!Array.isArray(config.extraSections) || config.extraSections.length > 4) throw new Error('extraSections: use 0 to 4 extra sections.');
+    config.extraSections.forEach(section => { text(section?.title, 'extraSections.title', 100); text(section?.text, 'extraSections.text', 1000); });
+  }
   if (!Array.isArray(config.socials) || config.socials.length > 6) throw new Error('socials: use 0 to 6 profile links.');
   config.socials.forEach(profile => { text(profile.label, 'socials.label', 80); url(profile.url, 'socials.url'); });
   if (config.music?.file) media(config.music.file, 'music.file');

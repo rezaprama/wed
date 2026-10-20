@@ -3,10 +3,14 @@
   "language": "en",
   "demo": true,
   "allowIndexing": true,
+  "theme": {
+    "colors": { "background": "#f7f1f9", "text": "#3d1c47", "accent": "#7b2f91" },
+    "fontSizes": { "body": 16, "heading": 28, "title": 52 }
+  },
   "couple": {
-    "names": "Rani & Dimas",
-    "first": { "name": "Rani", "family": "Child of Parent One & Parent Two", "photo": "/media/person-one.svg" },
-    "second": { "name": "Dimas", "family": "Child of Parent Three & Parent Four", "photo": "/media/person-two.svg" },
+    "names": "Galih & Ratna",
+    "first": { "name": "Galih", "birthDate": "2000-01-01", "family": "Child of Parent One & Parent Two", "photo": "/media/person-one.svg" },
+    "second": { "name": "Ratna", "birthDate": "2000-08-17", "family": "Child of Parent Three & Parent Four", "photo": "/media/person-two.svg" },
     "hosts": ["Parent One & Parent Two", "Parent Three & Parent Four"],
     "photo": "/media/couple.svg",
     "hashtag": "#YourWeddingStory"
@@ -16,6 +20,7 @@
     { "slug": "two", "city": "Second city", "title": "Family celebration", "date": "2027-06-19", "start": "10:00", "end": "13:00", "timeZone": "Asia/Jakarta", "venue": "Your second venue", "address": "Add your second venue address here", "mapUrl": "https://maps.google.com/?q=Bandung" }
   ],
   "gallery": ["/media/memory-one.svg", "/media/memory-two.svg", "/media/memory-three.svg"],
+  "extraSections": [],
   "socials": [],
   "music": { "file": "" },
   "videoUrl": "",

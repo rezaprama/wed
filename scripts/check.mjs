@@ -1,13 +1,14 @@
 import { readFile, readdir, access } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 import { dirname } from 'node:path';
+import { applyTheme } from '../src/theme.mjs';
 const root = resolve(import.meta.dirname, '..');
 const config = JSON.parse(await readFile(resolve(root, 'wedding.json'), 'utf8'));
 if (config.demo) {
   const media = [config.couple.photo, config.couple.first.photo, config.couple.second.photo, ...config.gallery];
   if (media.some(path => !path.endsWith('.svg')) || config.gifts.length || config.socials.length || config.music.file || config.guestbook.enabled) throw new Error('Sample mode must use placeholder SVGs and no personal gift/social/audio data or message collection. Set demo to false in your own private copy before personalization.');
 }
-const css = (await readFile(resolve(root, 'src/style.css'), 'utf8')).replace(/\/\*[\s\S]*?\*\//g, '');
+const css = applyTheme((await readFile(resolve(root, 'src/style.css'), 'utf8')).replace(/\/\*[\s\S]*?\*\//g, ''), config);
 const colors = new Set([...css.matchAll(/#[a-f0-9]{3,8}\b/gi)].map(match => match[0].toLowerCase()));
 const sizes = [...css.matchAll(/--text-\w+\s*:\s*(\d+px)/g)].map(match => match[1]);
 const families = new Set([...css.matchAll(/@font-face\s*\{[^}]*font-family:\s*([^;]+)/g)].map(match => match[1].trim()));

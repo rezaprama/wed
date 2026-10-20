@@ -7,6 +7,10 @@
     "language": { "enum": ["en", "id"] },
     "demo": { "type": "boolean", "description": "Shows a clear sample-only notice. Set false for your own wedding." },
     "allowIndexing": { "type": "boolean", "description": "Use false if you do not want search engines to index the invitation. This is not password protection." },
+    "theme": { "type": "object", "additionalProperties": false, "properties": {
+      "colors": { "type": "object", "additionalProperties": false, "properties": { "background": { "$ref": "#/$defs/color" }, "text": { "$ref": "#/$defs/color" }, "accent": { "$ref": "#/$defs/color" } } },
+      "fontSizes": { "type": "object", "additionalProperties": false, "properties": { "body": { "type": "integer", "minimum": 16, "maximum": 20 }, "heading": { "type": "integer", "minimum": 24, "maximum": 40 }, "title": { "type": "integer", "minimum": 40, "maximum": 64 } } }
+    } },
     "couple": { "type": "object", "required": ["names", "first", "second", "hosts", "photo", "hashtag"], "properties": {
       "names": { "type": "string" }, "photo": { "type": "string" }, "hashtag": { "type": "string" },
       "first": { "$ref": "#/$defs/person" }, "second": { "$ref": "#/$defs/person" },
@@ -18,11 +22,12 @@
       "timeZone": { "type": "string" }, "venue": { "type": "string" }, "address": { "type": "string" }, "mapUrl": { "type": "string", "format": "uri" }
     } } },
     "gallery": { "type": "array", "items": { "type": "string" }, "maxItems": 12 },
+    "extraSections": { "type": "array", "maxItems": 4, "description": "Optional plain-text sections, such as dress code or parking.", "items": { "type": "object", "required": ["title", "text"], "properties": { "title": { "type": "string", "maxLength": 100 }, "text": { "type": "string", "maxLength": 1000 } } } },
     "socials": { "type": "array", "items": { "type": "object", "required": ["label", "url"], "properties": { "label": { "type": "string" }, "url": { "type": "string", "format": "uri" } } } },
     "music": { "type": "object", "required": ["file"], "properties": { "file": { "type": "string", "description": "Local audio path, such as /media/song.mp3. Leave empty to disable." } } },
     "videoUrl": { "type": "string" },
     "gifts": { "type": "array", "items": { "type": "object", "required": ["label", "value", "owner"], "properties": { "label": { "type": "string" }, "value": { "type": "string" }, "owner": { "type": "string" } } } },
     "guestbook": { "type": "object", "required": ["enabled"], "properties": { "enabled": { "type": "boolean" } } }
   },
-  "$defs": { "person": { "type": "object", "required": ["name", "family", "photo"], "properties": { "name": { "type": "string" }, "family": { "type": "string" }, "photo": { "type": "string" } } } }
+  "$defs": { "color": { "type": "string", "pattern": "^#[a-fA-F0-9]{6}$" }, "person": { "type": "object", "required": ["name", "family", "photo"], "properties": { "name": { "type": "string" }, "family": { "type": "string" }, "birthDate": { "type": "string", "format": "date", "description": "Optional YYYY-MM-DD date of birth. Remove field to hide." }, "photo": { "type": "string" } } } }
 }
