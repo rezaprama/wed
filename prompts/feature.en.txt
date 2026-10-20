@@ -6,7 +6,7 @@ Read AGENTS.md, wedding.json, docs/features.md and relevant files before editing
 
 First check whether extraSections, socials, gallery, music, videoUrl or the optional guestbook already supports this request. Prefer a configuration change when sufficient.
 
-For code changes, describe the resulting behavior and make the smallest suitable change. Preserve all four invitation variants, guest names, keyboard access, three colors, three text sizes, at most three font families, minimum 4.5:1 text contrast and the Template by rezaprama.com credit. Heavy features must be optional and load only when needed. Do not add a framework, tracker or paid service merely for implementation convenience. Preserve CSP, validation, moderation, rate limits and design checks.
+For code changes, describe the resulting behavior and make the smallest suitable change. Preserve all four invitation variants, guest names, keyboard access, three colors, three text sizes, at most three font families, minimum 4.5:1 text contrast and the Template by Reza Prama Arviandi credit. Heavy features must be optional and load only when needed. Do not add a framework, tracker or paid service merely for implementation convenience. Preserve CSP, validation, moderation, rate limits and design checks.
 
 Update schema, validation and documentation for new settings. Test meaningful new behavior. Run npm run verify when you have a terminal. Check desktop/mobile for visual changes. Do not invent PageSpeed scores or test results. If publication is part of my request, deploy after checks pass and smoke-test the live URL. Do not provision paid resources, widen access, change repository visibility, delete databases or force-push without a clear request.
 

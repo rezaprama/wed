@@ -53,7 +53,7 @@ test('birth dates display by language, accept leap years and can be omitted', ()
   const html = renderPage(input, variants(input)[0], assets);
   assert.match(html, /Lahir <time datetime="2000-02-29">29 Februari 2000<\/time>/);
   assert.equal((html.match(/datetime="2000-/g) || []).length, 1);
-  assert.match(html, /Template by <a href="https:\/\/rezaprama\.com"/);
+  assert.match(html, /Template by <a href="https:\/\/rezaprama\.com" target="_blank" rel="noopener noreferrer">Reza Prama Arviandi<\/a>/);
 });
 
 test('theme choices produce real CSS and preserve old configurations', () => {

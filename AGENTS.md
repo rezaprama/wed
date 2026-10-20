@@ -16,7 +16,7 @@
 - `theme.colors` has only `background`, `text`, `accent`. Use six-digit hex and at least 4.5:1 text/background and accent/background contrast.
 - `theme.fontSizes` has only `body` (16-20), `heading` (24-40), `title` (40-64), with `body < heading < title`. Use existing CSS variables, not new font-size literals.
 - Extra content uses up to four `extraSections` with escaped plain `title` and `text`. Do not turn these into arbitrary HTML.
-- Keep the default footer credit: `Template by rezaprama.com`, unless the owner asks to change it.
+- Keep the default footer credit: `Template by Reza Prama Arviandi`, with a normal followable link to `https://rezaprama.com` (no `nofollow`, `sponsored`, or `ugc`), unless the owner asks to change it.
 - Do not introduce frameworks, trackers, external fonts, dependencies or paid resources merely for convenience. Explain a necessary new dependency. Heavy additions must be optional and deferred.
 - Do not provision paid resources, widen access, change repository visibility, destroy databases or force-push without a clear request. Do not ask for passwords, login codes or existing secrets in chat.
 - Never weaken CSP, escaping, validation, moderation, rate limits or design/privacy checks to make a change pass. No audit-detection code or invented PageSpeed numbers.
